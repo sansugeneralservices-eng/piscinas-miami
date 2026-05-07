@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modelos y Opciones | The Pool Stylist Miami</title>
+  <meta name="description" content="Explora nuestra colección exclusiva de Container Pools. Diseños estandarizados para cada estilo de vida en Miami.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --spacing-xl: 100px;
+      --spacing-lg: 60px;
+      --accent-cyan: var(--primary-light);
+      --bg-dark: var(--dark);
+    }
+    
+    body {
+      background-color: var(--bg-dark);
+      color: #fff;
+    }
+    
+    .catalog-hero {
+      padding: 160px 0 80px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(10, 25, 41, 0.5) 0%, var(--bg-dark) 100%);
+    }
+
+    .catalog-hero h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+
+    .model-section {
+      padding: var(--spacing-xl) 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .model-container {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .model-header {
+      margin-bottom: 40px;
+    }
+
+    .model-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .model-price {
+      font-size: 0.9rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-bottom: 15px;
+      display: block;
+      font-weight: 700;
+    }
+
+    .price-value {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #fff;
+      display: block;
+      line-height: 1;
+      margin-bottom: 10px;
+      text-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+    }
+
+    .monthly-payment {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 5px;
+      display: block;
+    }
+
+    .model-image-container {
+      margin: 40px 0;
+      position: relative;
+    }
+
+    .model-image-container img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .model-dimensions {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 500;
+    }
+
+    .model-highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin: 50px 0;
+      text-align: left;
+    }
+
+    .highlight-box {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 30px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .highlight-box h4 {
+      color: #fff;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+      opacity: 0.9;
+    }
+
+    .highlight-box p {
+      font-size: 1.1rem;
+      color: #fff;
+      line-height: 1.4;
+    }
+
+    .model-description {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .model-specs-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+
+    .spec-tag {
+      background: rgba(0, 243, 255, 0.1);
+      color: var(--accent-cyan);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .model-cta {
+      margin-top: 40px;
+    }
+
+    .btn-catalog {
+      display: inline-block;
+      padding: 18px 45px;
+      background: var(--accent-cyan);
+      color: var(--bg-dark);
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 20px rgba(0, 243, 255, 0.2);
+    }
+
+    .btn-catalog:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(0, 243, 255, 0.4);
+      background: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .model-title { font-size: 2.5rem; }
+      .model-highlights { grid-template-columns: 1fr; }
+      .catalog-hero h1 { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar scrolled">
+  <div class="container">
+    <a href="index.html" class="logo">The Pool <span>Stylist</span> Miami</a>
+    <div class="nav-links">
+      <a href="index.html#beneficios">Ventajas</a>
+      <a href="index.html#galeria">Galería</a>
+      <a href="index.html" class="nav-cta">Volver al Inicio</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO CATALOG -->
+<header class="catalog-hero">
+  <div class="container">
+    <span class="section-label">Colección 2026</span>
+    <h1>Modelos y Opciones</h1>
+    <p>Diseño boutique, ingeniería de precisión y el lujo de Miami en cada detalle.</p>
+  </div>
+</header>
+
+<!-- MODEL 1: URBAN OASIS -->
+<section class="model-section">
+  <div class="container">
+    <div class="model-container">
+      <div class="model-header">
+        <span class="model-price">Precio Inicial</span>
+        <span class="price-value">$14,900</span>
+        <span class="monthly-payment">Pagos desde aprox. $199/mes</span>
+        <h2 class="model-title">The Urban Oasis</h2>
+      </div>
+
+      <div class="model-highlights">
+        <div class="highlight-box">
+          <h4>Ideal Para</h4>
+          <p>Patios urbanos, terrazas compactas y townhouses modernos en Miami.</p>
+        </div>
+        <div class="highlight-box">
+          <h4>Por qué lo aman</h4>
+          <p>Lujo resort en un formato inteligente que se adapta a cualquier espacio.</p>
+        </div>
+      </div>
+
+      <div class="model-image-container">
+        <img src="img/model_12ft.png" alt="The Urban Oasis 13ft Container Pool">
+        <p class="model-dimensions">12.8' x 7.2' x 3.93'</p>
+      </div>
+
+      <p class="model-description">
+        El Urban Oasis es nuestra respuesta a los desafíos del espacio en la ciudad. No dejes que un patio pequeño limite tus sueños. Este modelo combina una estética industrial elegante con la calidez del revestimiento WPC, creando un rincón de paz absoluto. Su panel acrílico frontal no solo es una pieza de diseño, sino que amplifica visualmente tu jardín.
+      </p>
+
+      <div class="model-specs-list">
+        <span class="spec-tag">Panel Acrílico 10.4' x 3.28'</span>
+        <span class="spec-tag">Capacidad 1,800 Gal</span>
+        <span class="spec-tag">Cascada Blade Incluida</span>
+        <span class="spec-tag">Iluminación LED Smart</span>
+      </div>
+
+      <div class="model-cta">
+        <a href="https://wa.me/1TUNUMERO?text=Hola%2C%20quiero%20más%20info%20sobre%20el%20modelo%20Urban%20Oasis" class="btn-catalog" target="_blank">Consultar Disponibilidad</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODEL 2: FAMILY RETREAT -->
+<section class="model-section">
+  <div class="container">
+    <div class="model-container">
+      <div class="model-header">
+        <span class="model-price">Precio Inicial</span>
+        <span class="price-value">$18,500</span>
+        <span class="monthly-payment">Pagos desde aprox. $249/mes</span>
+        <h2 class="model-title">The Family Retreat</h2>
+      </div>
+
+      <div class="model-highlights">
+        <div class="highlight-box">
+          <h4>Ideal Para</h4>
+          <p>Familias activas que buscan diversión segura y estilo en su patio.</p>
+        </div>
+        <div class="highlight-box">
+          <h4>Por qué lo aman</h4>
+          <p>Espacio optimizado para juegos, relajación y momentos memorables.</p>
+        </div>
+      </div>
+
+      <div class="model-image-container">
+        <img src="img/model_15ft.png" alt="The Family Retreat 15ft Container Pool">
+        <p class="model-dimensions">15.0' x 7.5' x 4.2'</p>
+      </div>
+
+      <p class="model-description">
+        El Family Retreat está diseñado para ser el corazón de tu hogar. Con un área de nado más amplia y escaleras de seguridad integradas, es el espacio perfecto para que los niños jueguen mientras tú te relajas con una bebida fría. Su estructura robusta y materiales de bajo mantenimiento garantizan años de disfrute sin preocupaciones.
+      </p>
+
+      <div class="model-specs-list">
+        <span class="spec-tag">Panel Acrílico 12.0' x 3.5'</span>
+        <span class="spec-tag">Capacidad 2,500 Gal</span>
+        <span class="spec-tag">Escaleras de Seguridad</span>
+        <span class="spec-tag">Deck WPC Anti-Deslizante</span>
+      </div>
+
+      <div class="model-cta">
+        <a href="https://wa.me/1TUNUMERO?text=Hola%2C%20quiero%20más%20info%20sobre%20el%20modelo%20Family%20Retreat" class="btn-catalog" target="_blank">Ver Opciones de Color</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODEL 3: FLAGSHIP ELITE -->
+<section class="model-section">
+  <div class="container">
+    <div class="model-container">
+      <div class="model-header">
+        <span class="model-price">Precio Inicial</span>
+        <span class="price-value">$24,900</span>
+        <span class="monthly-payment">Pagos desde aprox. $329/mes</span>
+        <h2 class="model-title">The Flagship Elite</h2>
+      </div>
+
+      <div class="model-highlights">
+        <div class="highlight-box">
+          <h4>Ideal Para</h4>
+          <p>Propiedades de lujo, anfitriones de fiestas y amantes del diseño exclusivo.</p>
+        </div>
+        <div class="highlight-box">
+          <h4>Por qué lo aman</h4>
+          <p>El máximo exponente de lujo sobre el piso. Un resort privado en tu casa.</p>
+        </div>
+      </div>
+
+      <div class="model-image-container">
+        <img src="img/model_20ft.png" alt="The Flagship Elite 20ft Container Pool">
+        <p class="model-dimensions">20.0' x 8.0' x 4.5'</p>
+      </div>
+
+      <p class="model-description">
+        Nuestra joya de la corona. El Flagship Elite no es solo una piscina, es una declaración de estilo. Con 20 pies de longitud, ofrece espacio suficiente para nadar, una zona de "sun shelf" para bronceado y un sistema de jets de masaje que rivaliza con cualquier spa de hotel. Es la pieza central que transformará tu propiedad en un destino de lujo.
+      </p>
+
+      <div class="model-specs-list">
+        <span class="spec-tag">Panel Acrílico Panoramic 16.0'</span>
+        <span class="spec-tag">Capacidad 4,200 Gal</span>
+        <span class="spec-tag">Zona Sun Shelf Integrada</span>
+        <span class="spec-tag">Sistema de Masaje Spa</span>
+      </div>
+
+      <div class="model-cta">
+        <a href="https://wa.me/1TUNUMERO?text=Hola%2C%20quiero%20una%20cotización%20VIP%20del%20modelo%20Flagship%20Elite" class="btn-catalog" target="_blank">Solicitar Cotización VIP</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container" style="text-align: center; padding-top: 50px;">
+    <p>© 2026 The Pool Stylist Miami. Precios sujetos a cambios según opciones de personalización y ubicación de instalación.</p>
+    <a href="index.html" style="color: var(--accent-cyan); text-decoration: none; margin-top: 20px; display: inline-block; font-weight: 600;">← Volver a la página principal</a>
+  </div>
+</footer>
+
+</body>
+</html>
