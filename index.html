@@ -154,9 +154,10 @@
       </div>
     </div>
     <div style="text-align:center; margin-top:48px;">
-      <video autoplay muted loop playsinline style="border-radius:16px; max-width:800px; width:100%; box-shadow: 0 10px 40px rgba(0,0,0,0.1); display: block; margin: 0 auto;">
-        <source src="video/installation.mp4" type="video/mp4">
-        Tu navegador no soporta el formato de video.
+      <video autoplay muted loop playsinline preload="metadata" poster="img/installation.png" style="border-radius:16px; max-width:800px; width:100%; box-shadow: 0 10px 40px rgba(0,0,0,0.1); display: block; margin: 0 auto;">
+        <source src="video/installation.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+        <!-- Fallback: imagen si el video no carga -->
+        <img src="img/installation.png" alt="Proceso de instalación de Container Pool" style="width:100%; border-radius:16px;">
       </video>
     </div>
   </div>
@@ -314,7 +315,15 @@
 <!-- WHATSAPP FLOTANTE -->
 <a href="https://wa.me/1TUNUMERO?text=Hola%2C%20me%20interesa%20una%20piscina" class="whatsapp-float" target="_blank" aria-label="WhatsApp">💬</a>
 
+<!-- SUPABASE LIBRARY -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
+// Configuración de Supabase
+const SUPABASE_URL = 'https://uztcpqclovxfpobuynja.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_YOSDIO5zx4crsqFhPvjTsg_0kW2Doww';
+const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
 // Navbar scroll effect
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
@@ -345,15 +354,62 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 reveals.forEach(el => observer.observe(el));
 
-// Form handler
-function handleSubmit(e) {
+// Form handler con Supabase
+async function handleSubmit(e) {
   e.preventDefault();
+  const submitBtn = e.target.querySelector('.form-submit');
+  const originalBtnText = submitBtn.innerText;
+  
+  // Cambiar estado del botón
+  submitBtn.innerText = 'Enviando...';
+  submitBtn.disabled = true;
+
   const nombre = document.getElementById('nombre').value;
   const telefono = document.getElementById('telefono').value;
+  const email = document.getElementById('email').value;
   const tamano = document.getElementById('tamano').value;
   const mensaje = document.getElementById('mensaje').value;
-  const text = `Hola, soy ${nombre}. Me interesa cotizar una piscina ${tamano}. Tel: ${telefono}. ${mensaje}`;
-  window.open(`https://wa.me/1TUNUMERO?text=${encodeURIComponent(text)}`, '_blank');
+
+  try {
+    // 1. Guardar en Supabase
+    const { error } = await supabase
+      .from('leads')
+      .insert([
+        { 
+          nombre: nombre, 
+          telefono: telefono, 
+          email: email, 
+          tamano: tamano, 
+          mensaje: mensaje 
+        }
+      ]);
+
+    if (error) throw error;
+
+    // 2. Preparar mensaje para WhatsApp
+    const text = `Hola, soy ${nombre}. Me interesa cotizar una piscina ${tamano}. Tel: ${telefono}. ${mensaje}`;
+    const whatsappUrl = `https://wa.me/1TUNUMERO?text=${encodeURIComponent(text)}`;
+
+    // 3. Redirigir a WhatsApp
+    window.open(whatsappUrl, '_blank');
+    
+    // Opcional: Limpiar formulario
+    e.target.reset();
+    submitBtn.innerText = '¡Enviado con éxito!';
+    
+  } catch (error) {
+    console.error('Error al guardar en Supabase:', error);
+    alert('Hubo un pequeño problema al procesar tu solicitud, pero puedes contactarnos directamente por WhatsApp.');
+    
+    // Fallback: intentar WhatsApp de todas formas si falla la DB
+    const text = `Hola, soy ${nombre} (error DB). Me interesa cotizar una piscina ${tamano}. Tel: ${telefono}.`;
+    window.open(`https://wa.me/1TUNUMERO?text=${encodeURIComponent(text)}`, '_blank');
+  } finally {
+    setTimeout(() => {
+      submitBtn.innerText = originalBtnText;
+      submitBtn.disabled = false;
+    }, 3000);
+  }
 }
 </script>
 
